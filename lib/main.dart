@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
@@ -33,17 +35,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> views = const [
     Center(
-      child: Text('Dashboard'),
+      child: Text('Home'),
     ),
     Center(
-      child: Text('Account'),
+      child: Text('Purchase'),
     ),
     Center(
-      child: Text('Settings'),
+      child: Text('Sales'),
     ),
   ];
 
   /// The currently selected index of the bar
+
   int selectedIndex = 0;
 
   @override
@@ -55,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Row(
         children: [
           SideNavigationBar(
+            footer: SideNavigationBarFooter(label: Text('')),
             selectedIndex: selectedIndex,
             items: const [
               SideNavigationBarItem(
@@ -80,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
           /// Make it take the rest of the available width
           Expanded(
             child: views.elementAt(selectedIndex),
-          )
+          ),
         ],
       ),
     );
