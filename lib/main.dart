@@ -49,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   /// The currently selected index of the bar
-
   int selectedIndex = 0;
 
   @override
