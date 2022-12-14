@@ -43,6 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
     Center(
       child: Text('Sales'),
     ),
+    Center(
+      child: Text('Inventory'),
+    ),
   ];
 
   /// The currently selected index of the bar
@@ -72,6 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
               SideNavigationBarItem(
                 icon: Icons.shopping_bag,
                 label: 'Sales',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.shopping_bag,
+                label: 'Inventory',
               ),
             ],
             onTap: (index) {
