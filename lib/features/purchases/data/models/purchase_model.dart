@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:medinven/features/purchases/domain/entities/purchase.dart';
+import 'package:medinven/features/purchases/domain/entities/purchase_entity.dart';
 
-class PurchaseModel extends Purchase {
+class PurchaseModel extends PurchaseEntity {
   PurchaseModel({
     required medicineName,
     required packageType,

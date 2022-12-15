@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-class Purchase extends Equatable {
+class PurchaseEntity extends Equatable {
   final String medicineName;
   final String packageType;
   final int quantityPerPack;
@@ -14,7 +14,7 @@ class Purchase extends Equatable {
   final int finalRatePerPack;
   final int mrpPerPack;
   final String manufacturer;
-  Purchase({
+  PurchaseEntity({
     required this.medicineName,
     required this.packageType,
     required this.quantityPerPack,
@@ -28,7 +28,7 @@ class Purchase extends Equatable {
     required this.manufacturer,
   });
 
-  Purchase copyWith({
+  PurchaseEntity copyWith({
     String? medicineName,
     String? packageType,
     int? quantityPerPack,
@@ -41,7 +41,7 @@ class Purchase extends Equatable {
     int? mrpPerPack,
     String? manufacturer,
   }) {
-    return Purchase(
+    return PurchaseEntity(
       medicineName: medicineName ?? this.medicineName,
       packageType: packageType ?? this.packageType,
       quantityPerPack: quantityPerPack ?? this.quantityPerPack,
@@ -72,8 +72,8 @@ class Purchase extends Equatable {
     };
   }
 
-  factory Purchase.fromMap(Map<String, dynamic> map) {
-    return Purchase(
+  factory PurchaseEntity.fromMap(Map<String, dynamic> map) {
+    return PurchaseEntity(
       medicineName: map['medicineName'] ?? '',
       packageType: map['packageType'] ?? '',
       quantityPerPack: map['quantityPerPack']?.toInt() ?? 0,
@@ -90,12 +90,12 @@ class Purchase extends Equatable {
 
   String toJson() => json.encode(toMap());
 
-  factory Purchase.fromJson(String source) =>
-      Purchase.fromMap(json.decode(source));
+  factory PurchaseEntity.fromJson(String source) =>
+      PurchaseEntity.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Purchase(medicineName: $medicineName, packageType: $packageType, quantityPerPack: $quantityPerPack, unit: $unit, batchCode: $batchCode, quantity: $quantity, expiryDate: $expiryDate, gst: $gst, finalRatePerPack: $finalRatePerPack, mrpPerPack: $mrpPerPack, manufacturer: $manufacturer)';
+    return 'PurchaseEntity(medicineName: $medicineName, packageType: $packageType, quantityPerPack: $quantityPerPack, unit: $unit, batchCode: $batchCode, quantity: $quantity, expiryDate: $expiryDate, gst: $gst, finalRatePerPack: $finalRatePerPack, mrpPerPack: $mrpPerPack, manufacturer: $manufacturer)';
   }
 
   @override
