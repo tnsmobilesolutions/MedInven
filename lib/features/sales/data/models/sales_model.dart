@@ -1,10 +1,8 @@
 import 'dart:convert';
-import 'dart:html';
-
 import 'package:medinven/features/sales/domain/entities/sales_entity.dart';
 
-class SalesModels extends SalesEntity {
-  SalesModels({
+class SalesModel extends SalesEntity {
+  SalesModel({
     required medicineName,
     required quantity,
     required discount,
@@ -37,8 +35,8 @@ class SalesModels extends SalesEntity {
     };
   }
 
-  factory SalesModels.fromMap(Map<String, dynamic> map) {
-    return SalesModels(
+  factory SalesModel.fromMap(Map<String, dynamic> map) {
+    return SalesModel(
       medicineName: map['medicineName'] ?? '',
       quantity: map['quantity']?.toInt() ?? 0,
       discount: map['discount']?.toInt() ?? 0,
@@ -53,6 +51,6 @@ class SalesModels extends SalesEntity {
   @override
   String toJson() => json.encode(toMap());
 
-  factory SalesModels.fromJson(String source) =>
-      SalesModels.fromMap(json.decode(source));
+  factory SalesModel.fromJson(String source) =>
+      SalesModel.fromMap(json.decode(source));
 }

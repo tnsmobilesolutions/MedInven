@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:medinven/features/inventory/domain/entities/inventory_entity.dart';
 
 class InventoryModel extends InventoryEntity {
