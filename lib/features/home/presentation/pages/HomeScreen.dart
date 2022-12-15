@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Overview',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey),
                 ),
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(width: 10),
                       GestureDetector(
                         child: CustomWidgets.customContainer(
-                          '0',
+                          '\u{20B9} 0',
                           '0 Days',
                           'Savings',
                           totalWidth,
@@ -69,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       GestureDetector(
                         child: CustomWidgets.customContainer(
                           '0',
-                          'Today',
-                          'Sales',
+                          '',
+                          'Inventory Items',
                           totalWidth,
                           Color.fromARGB(132, 111, 210, 223),
                           Color.fromARGB(132, 16, 98, 109),
@@ -84,8 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       GestureDetector(
                         child: CustomWidgets.customContainer(
                           '0',
-                          'Today',
-                          'Sales',
+                          '',
+                          'Alerts',
                           totalWidth,
                           Color.fromARGB(169, 255, 219, 179),
                           Color.fromARGB(169, 168, 97, 14),
@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Your Sales',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey),
                 ),
@@ -120,15 +120,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         Row(
                           children: [
                             CustomWidgets.customContainer2(
-                                '0',
-                                'Total Sales Amount',
-                                'Today',
-                                totalWidth,
-                                Colors.white,
-                                Colors.blue),
+                              '\u{20B9} 0',
+                              'Total Sales Amount',
+                              'Today',
+                              totalWidth,
+                              Colors.white,
+                              Color.fromARGB(255, 72, 33, 243),
+                            ),
                             SizedBox(width: 10),
-                            CustomWidgets.customContainer2('0', 'Total Profit',
-                                'Today', totalWidth, Colors.white, Colors.blue),
+                            CustomWidgets.customContainer2(
+                              '\u{20B9} 0',
+                              'Total Profit',
+                              'Today',
+                              totalWidth,
+                              Colors.white,
+                              Color.fromARGB(255, 72, 33, 243),
+                            ),
                             SizedBox(width: 10),
                             Column(
                               children: [
@@ -139,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: totalWidth / 5,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
-                                      color: Colors.blue,
+                                      color: Color.fromARGB(255, 72, 33, 243),
                                     ),
                                     child: Center(
                                       child: Text(
@@ -159,7 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 45,
                                     width: totalWidth / 5,
                                     decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.blue),
+                                      border: Border.all(
+                                        color: Color.fromARGB(255, 72, 33, 243),
+                                      ),
                                       borderRadius: BorderRadius.circular(5),
                                       color: Colors.white,
                                     ),
@@ -168,7 +177,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         'View All Sales',
                                         style: TextStyle(
                                           fontSize: 12,
-                                          color: Colors.blue,
+                                          color:
+                                              Color.fromARGB(255, 72, 33, 243),
                                         ),
                                       ),
                                     ),
@@ -188,24 +198,151 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(5),
                             color: Colors.white,
                           ),
-                          child: Center(
-                            child: Text(
-                              'View All Sales',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.blue,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(10),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '\u{20B9} 0',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Last 7 days',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 13,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
+                              SizedBox(height: 150),
+                              Center(
+                                child: Text(
+                                  'Not Enough Data',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        Container(),
-                        Container(),
-                        Container(),
-                      ],
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          GestureDetector(
+                            onTap: (() {}),
+                            child: Container(
+                              height: 60,
+                              width: totalWidth / 5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Color.fromARGB(255, 72, 33, 243),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SizedBox(width: 20),
+                                  Icon(
+                                    Icons.shopping_bag_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 50),
+                                  Expanded(
+                                    child: Text(
+                                      'Add a Sale',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          GestureDetector(
+                            onTap: (() {}),
+                            child: Container(
+                              height: 60,
+                              width: totalWidth / 5,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Color.fromARGB(190, 36, 201, 151),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  SizedBox(width: 20),
+                                  Icon(
+                                    Icons.inbox,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(width: 50),
+                                  Expanded(
+                                    child: Text(
+                                      'Add a Purchase',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 50),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(width: 30),
+                              Text(
+                                'Purchase Insights',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          CustomWidgets.customContainer2(
+                            '\u{20B9} 0',
+                            '0',
+                            'Today',
+                            totalWidth,
+                            Colors.white,
+                            Color.fromARGB(255, 72, 33, 243),
+                          ),
+                          SizedBox(height: 10),
+                          CustomWidgets.customContainer2(
+                            '1',
+                            '\u{20B9} 0',
+                            'Lifetime Purchases',
+                            totalWidth,
+                            Colors.white,
+                            Color.fromARGB(255, 72, 33, 243),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 )

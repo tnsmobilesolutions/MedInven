@@ -38,6 +38,7 @@ class CustomWidgets {
                 Text(
                   text3,
                   style: TextStyle(
+                    fontWeight: FontWeight.bold,
                     fontSize: 12,
                     color: textColor,
                   ),
@@ -92,6 +93,7 @@ class CustomWidgets {
                 Text(
                   text3,
                   style: TextStyle(
+                    fontWeight: FontWeight.bold,
                     fontSize: 12,
                     color: textColor,
                   ),
