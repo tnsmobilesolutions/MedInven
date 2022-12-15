@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:medinven/features/purchases/domain/entities/purchase_entity.dart';
 
 class PurchaseModel extends PurchaseEntity {
