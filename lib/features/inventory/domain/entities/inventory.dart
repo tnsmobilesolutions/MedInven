@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
@@ -11,6 +13,7 @@ class Inventory extends Equatable {
   final DateTime expiryDate;
   final String salt;
   final String manufacturer;
+
   Inventory({
     required this.medicineName,
     required this.quantityInStock,
