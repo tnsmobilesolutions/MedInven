@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:medinven/features/purchases/presentation/widgets/purchasewidgets.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});
@@ -19,7 +20,9 @@ class _InventoryState extends State<Inventory> {
           Icons.add,
           size: 30,
         ),
-        onPressed: () {},
+        onPressed: () {
+          PurchaseDialog.showMyDialog(context);
+        },
       ),
     );
   }
