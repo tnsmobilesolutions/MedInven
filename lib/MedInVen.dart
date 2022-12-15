@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:medinven/Dashboard.dart';
 import 'package:medinven/SideDrawer.dart';
+import 'package:medinven/customcolor.dart';
+import 'package:medinven/font.dart';
 import 'package:sidebarx/sidebarx.dart';
 
 class MedInVen extends StatelessWidget {
@@ -18,16 +20,155 @@ class MedInVen extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color.fromARGB(132, 111, 210, 223),
-        canvasColor: Color.fromARGB(132, 16, 98, 109),
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: const TextTheme(
-          headlineSmall: TextStyle(
-            color: Colors.white,
-            fontSize: 46,
-            fontWeight: FontWeight.w800,
+        //useMaterial3: true,
+        navigationBarTheme: NavigationBarThemeData(
+            backgroundColor: CustomColor.white, height: 10),
+        drawerTheme: DrawerThemeData(backgroundColor: CustomColor.white),
+        snackBarTheme: SnackBarThemeData(
+          contentTextStyle: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.white,
+            //fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+          elevation: 0,
+          backgroundColor: CustomColor.lightGreen,
+          behavior: SnackBarBehavior.floating,
+        ),
+        dividerColor: CustomColor.grey,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: CustomColor.customBlue,
+            elevation: 0,
+            iconSize: 16,
+            focusColor: CustomColor.white),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            //shape: MaterialStateProperty<OutlinedBorder?>.,
+            backgroundColor: MaterialStateProperty.all<Color>(
+              CustomColor.customBlue,
+            ),
+            elevation: MaterialStateProperty.all(0),
           ),
         ),
+        //sliderTheme: SliderThemeData(),
+        scaffoldBackgroundColor: CustomColor.white,
+        brightness: Brightness.light,
+        listTileTheme: ListTileThemeData(
+          iconColor: CustomColor.darkPurple,
+          textColor: CustomColor.black,
+          tileColor: CustomColor.lightSky,
+          //selectedColor: Colors.black,
+          selectedTileColor: CustomColor.lightSky,
+        ),
+        iconTheme: IconThemeData(color: CustomColor.darkPurple, size: 25),
+        // buttonTheme: ButtonThemeData(
+        //   buttonColor: CustomColor.lightBlue,
+        //   textTheme: ButtonTextTheme.normal,
+        // ),
+        primaryColor: CustomColor.lightSky,
+        selectedRowColor: CustomColor.white,
+        primaryColorLight: CustomColor.grey,
+        //backgroundColor: CustomColor.lightBlue,
+        textTheme: TextTheme(
+          headline1: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          headline2: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: 17,
+          ),
+          headline3: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.grey,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+          headline4: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.grey,
+            fontSize: 12,
+          ),
+          headline5: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+          subtitle1: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.lightGreen,
+            fontSize: 14,
+          ),
+          subtitle2: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.lightSky,
+            fontSize: 12,
+          ),
+          bodyText1: TextStyle(
+              fontFamily: Font.fontFamily,
+              color: CustomColor.lightOrange,
+              //fontWeight: FontWeight.bold,
+              fontSize: 16),
+          bodyText2: TextStyle(
+            fontFamily: Font.fontFamily,
+            color: CustomColor.white,
+            //fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+          button: TextStyle(
+            color: CustomColor.white,
+            //fontWeight: FontWeight.bold,
+            fontFamily: Font.fontFamily,
+            fontSize: 18,
+          ),
+        ),
+        // textButtonTheme: TextButtonThemeData(
+        //   style: ButtonStyle(
+        //     foregroundColor: MaterialStateProperty.all(CustomColor.lightBlue),
+        //     textStyle: MaterialStateProperty.all(
+        //       TextStyle(
+        //         //decorationColor: Colors.black,
+        //         //color: CustomColor.white,
+        //         fontSize: 17,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(color: CustomColor.grey),
+          helperStyle: TextStyle(color: CustomColor.grey),
+          floatingLabelStyle: TextStyle(color: CustomColor.grey),
+          labelStyle: TextStyle(color: CustomColor.grey),
+          iconColor: CustomColor.grey,
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(width: 1.0, color: Colors.red)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(width: 1.0, color: CustomColor.grey)),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(width: 1.0, color: CustomColor.grey)),
+        ),
+        appBarTheme: AppBarTheme(
+          elevation: 0,
+          //centerTitle: true,
+          backgroundColor: CustomColor.white,
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            fontFamily: Font.fontFamily,
+            fontWeight: FontWeight.bold,
+            color: CustomColor.black,
+          ),
+        ),
+        textSelectionTheme:
+            TextSelectionThemeData(cursorColor: CustomColor.grey),
       ),
       home: Builder(
         builder: (context) {

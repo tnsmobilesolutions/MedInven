@@ -64,10 +64,7 @@ class SideDrawer extends StatelessWidget {
             SizedBox(height: 30),
             Text(
               'W  E  L  C  O  M  E',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: Colors.black54),
+              style: Theme.of(context).textTheme.headline1,
             ),
             SizedBox(height: 30),
           ],
