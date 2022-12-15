@@ -64,7 +64,10 @@ class SideDrawer extends StatelessWidget {
             SizedBox(height: 30),
             Text(
               'W  E  L  C  O  M  E',
-              style: TextStyle(fontSize: 15, color: Colors.black54),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.black54),
             ),
             SizedBox(height: 30),
           ],
@@ -90,7 +93,7 @@ class SideDrawer extends StatelessWidget {
           label: 'Purchase',
         ),
         SidebarXItem(
-          iconWidget: Icon(Icons.more_horiz_rounded, color: Colors.grey),
+          iconWidget: Icon(Icons.menu, color: Colors.grey),
           label: 'More',
         ),
       ],

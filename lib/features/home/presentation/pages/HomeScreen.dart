@@ -310,18 +310,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           SizedBox(height: 50),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(width: 30),
-                              Text(
-                                'Purchase Insights',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
-                              ),
-                            ],
+                          SizedBox(width: 30),
+                          Text(
+                            'Purchase Insights',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 10),
                           CustomWidgets.customContainer2(
