@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:medinven/features/sales/presentation/pages/createSales.dart';
 
 class Sales extends StatefulWidget {
   Sales({super.key});
@@ -19,7 +20,13 @@ class _SalesState extends State<Sales> {
           Icons.add,
           size: 30,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return CreateSales();
+            },
+          ));
+        },
       ),
     );
   }

@@ -91,6 +91,7 @@ class MedInVen extends StatelessWidget {
           headline4: TextStyle(
             fontFamily: Font.fontFamily,
             color: CustomColor.grey,
+            fontWeight: FontWeight.bold,
             fontSize: 12,
           ),
           headline5: TextStyle(
@@ -147,14 +148,15 @@ class MedInVen extends StatelessWidget {
           labelStyle: TextStyle(color: CustomColor.grey),
           iconColor: CustomColor.grey,
           errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(width: 1.0, color: Colors.red)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(5),
               borderSide: BorderSide(width: 1.0, color: CustomColor.grey)),
           focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(width: 1.0, color: CustomColor.grey)),
+              borderRadius: BorderRadius.circular(5),
+              borderSide:
+                  BorderSide(width: 1.0, color: CustomColor.customBlue)),
         ),
         appBarTheme: AppBarTheme(
           elevation: 0,
