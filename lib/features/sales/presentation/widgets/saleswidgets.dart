@@ -45,6 +45,7 @@ class SalesWidgets {
                   GestureDetector(
                     onTap: (() {
                       Navigator.pop(context);
+                      Navigator.pop(context);
                     }),
                     child: Container(
                       height: 30,

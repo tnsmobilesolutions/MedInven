@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
 import 'package:medinven/features/sales/presentation/widgets/saleswidgets.dart';
+import 'package:intl/intl.dart';
 
 class CreateSales extends StatefulWidget {
   const CreateSales({super.key});
@@ -12,10 +13,28 @@ class CreateSales extends StatefulWidget {
 }
 
 class _CreateSalesState extends State<CreateSales> {
-  final medicineNameController = TextEditingController();
+  TextEditingController selectedDateController = TextEditingController();
+  TextEditingController medicineNameController = TextEditingController();
+  TextEditingController quantityController = TextEditingController();
+  TextEditingController discountController = TextEditingController();
+  TextEditingController mrpController = TextEditingController();
+  TextEditingController batchCodeController = TextEditingController();
+  String? _selectedMedType;
+  bool isTypeSelected = false;
+  int selectedIndex = 0;
+  String selectedMedType = '%';
+  List type = ['%', '\u{20B9}'];
+  static List<String> catagory = [
+    'Pcs',
+    'Strips',
+  ];
+  int containerHeight = 40;
+  int containerWidth = 40;
+
   @override
   Widget build(BuildContext context) {
     final totalWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -97,9 +116,19 @@ class _CreateSalesState extends State<CreateSales> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '* Medicine Name',
-                          style: Theme.of(context).textTheme.headline4,
+                        Row(
+                          children: [
+                            Text(
+                              '*',
+                              style: TextStyle(
+                                  color: CustomColor.red, fontSize: 20),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Medicine Name',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: 350,
@@ -120,9 +149,71 @@ class _CreateSalesState extends State<CreateSales> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '* Quantity',
-                          style: Theme.of(context).textTheme.headline4,
+                        Row(
+                          children: [
+                            Text(
+                              '*',
+                              style: TextStyle(
+                                  color: CustomColor.red, fontSize: 20),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Type',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 100,
+                          child: DropdownButton(
+                            borderRadius: BorderRadius.circular(5),
+                            style: Theme.of(context).textTheme.bodyText1,
+                            iconEnabledColor: Theme.of(context).iconTheme.color,
+                            hint: Text(
+                              catagory[0],
+                            ),
+                            value: _selectedMedType,
+                            dropdownColor: Colors.white,
+                            onChanged: (value) {
+                              setState(
+                                () {
+                                  _selectedMedType = value;
+                                  //print(_selectedMedType.toString());
+                                },
+                              );
+                            },
+                            items: catagory.map(
+                              (val) {
+                                return DropdownMenuItem(
+                                  value: val,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(13),
+                                    child: Text(val),
+                                  ),
+                                );
+                              },
+                            ).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              '*',
+                              style: TextStyle(
+                                  color: CustomColor.red, fontSize: 20),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Quantity',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: 100,
@@ -130,9 +221,9 @@ class _CreateSalesState extends State<CreateSales> {
                             style: Theme.of(context).textTheme.bodyText1,
                             keyboardType: TextInputType.number,
                             autofocus: false,
-                            controller: medicineNameController,
+                            controller: quantityController,
                             onSaved: (value) {
-                              medicineNameController.text = value!;
+                              quantityController.text = value!;
                             },
                             textInputAction: TextInputAction.next,
                           ),
@@ -153,22 +244,55 @@ class _CreateSalesState extends State<CreateSales> {
                             style: Theme.of(context).textTheme.bodyText1,
                             keyboardType: TextInputType.number,
                             autofocus: false,
-                            controller: medicineNameController,
+                            controller: discountController,
                             onSaved: (value) {
-                              medicineNameController.text = value!;
+                              discountController.text = value!;
                             },
                             textInputAction: TextInputAction.next,
                           ),
                         ),
                       ],
                     ),
+
+                    // SizedBox(
+                    //   height: 50,
+                    //   child: ListView.separated(
+                    //     separatorBuilder: (BuildContext context, int index) {
+                    //       return SizedBox(width: 10);
+                    //     },
+                    //     itemCount: 3,
+                    //     scrollDirection: Axis.horizontal,
+                    //     itemBuilder: (BuildContext context, int index) {
+                    //       return InkWell(
+                    //         onTap: () {
+                    //           setState(() {
+                    //             isTypeSelected = !isTypeSelected;
+                    //             selectedIndex = index;
+                    //             selectedMedType = type[index];
+                    //           });
+                    //         },
+                    //         child: customContainer(type[index], index),
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '* MRP / Pc',
-                          style: Theme.of(context).textTheme.headline4,
+                        Row(
+                          children: [
+                            Text(
+                              '*',
+                              style: TextStyle(
+                                  color: CustomColor.red, fontSize: 20),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'MRP / Pc',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: 100,
@@ -176,9 +300,9 @@ class _CreateSalesState extends State<CreateSales> {
                             style: Theme.of(context).textTheme.bodyText1,
                             keyboardType: TextInputType.number,
                             autofocus: false,
-                            controller: medicineNameController,
+                            controller: mrpController,
                             onSaved: (value) {
-                              medicineNameController.text = value!;
+                              mrpController.text = value!;
                             },
                             textInputAction: TextInputAction.next,
                           ),
@@ -222,9 +346,9 @@ class _CreateSalesState extends State<CreateSales> {
                             style: Theme.of(context).textTheme.bodyText1,
                             keyboardType: TextInputType.number,
                             autofocus: false,
-                            controller: medicineNameController,
+                            controller: batchCodeController,
                             onSaved: (value) {
-                              medicineNameController.text = value!;
+                              batchCodeController.text = value!;
                             },
                             textInputAction: TextInputAction.next,
                           ),
@@ -239,46 +363,38 @@ class _CreateSalesState extends State<CreateSales> {
                           'Expiry Date',
                           style: Theme.of(context).textTheme.headline4,
                         ),
-                        Container(
-                          height: 50,
+                        SizedBox(
                           width: 200,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: CustomColor.grey,
-                            ),
-                            borderRadius: BorderRadius.circular(5),
-                            color: CustomColor.white,
-                          ),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 150,
-                                child: TextFormField(
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                  keyboardType: TextInputType.number,
-                                  autofocus: false,
-                                  controller: medicineNameController,
-                                  onSaved: (value) {
-                                    medicineNameController.text = value!;
-                                  },
-                                  textInputAction: TextInputAction.next,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                        )),
-                                    labelText: "MM - YY",
-                                  ),
-                                ),
+                          child: TextFormField(
+                            style: Theme.of(context).textTheme.bodyText1,
+                            keyboardType: TextInputType.number,
+                            autofocus: false,
+                            controller: selectedDateController,
+                            onSaved: (value) {
+                              medicineNameController.text = value!;
+                            },
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                              onPressed: (() async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1950),
+                                    lastDate: DateTime(2100));
+
+                                if (pickedDate != null) {
+                                  String formattedDate =
+                                      DateFormat('yMMMM').format(pickedDate);
+                                  setState(() {
+                                    selectedDateController.text = formattedDate;
+                                  });
+                                } else {}
+                              }),
+                              icon: Icon(
+                                Icons.schedule_rounded,
                               ),
-                              IconButton(
-                                onPressed: (() {}),
-                                icon: Icon(
-                                  Icons.schedule_rounded,
-                                ),
-                              )
-                            ],
+                            )),
                           ),
                         ),
                       ],
@@ -303,7 +419,14 @@ class _CreateSalesState extends State<CreateSales> {
             ),
             SizedBox(height: 30),
             GestureDetector(
-              onTap: (() {}),
+              onTap: () {
+                print('Medicine name - ${medicineNameController.text}');
+                print('Quantity - ${quantityController.text}');
+                print('Discount - ${discountController.text}');
+                print('MRP/Pc - ${mrpController.text}');
+                print('Batch Code - ${batchCodeController.text}');
+                print('Exp. date - ${selectedDateController.text}');
+              },
               child: Container(
                 height: 45,
                 width: totalWidth,

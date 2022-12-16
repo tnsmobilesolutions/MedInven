@@ -13,4 +13,5 @@ class CustomColor {
   static const lightPurple = Color.fromARGB(169, 173, 179, 235);
   static const lightSky = Color.fromARGB(132, 111, 210, 223);
   static const white = Colors.white;
+  static const red = Colors.red;
 }
