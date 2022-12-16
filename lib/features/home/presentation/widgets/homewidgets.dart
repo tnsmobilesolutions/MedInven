@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class CustomWidgets {
+class HomeWidgets {
   static Widget customContainer(String text1, String text2, String text3,
       double width, Color containerColor, Color textColor, Widget icon) {
     return Container(

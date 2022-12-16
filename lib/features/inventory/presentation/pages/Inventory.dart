@@ -21,7 +21,7 @@ class _InventoryState extends State<Inventory> {
           size: 30,
         ),
         onPressed: () {
-          PurchaseDialog.showMyDialog(context);
+          PurchaseWidgets.showMyDialog(context);
         },
       ),
     );
