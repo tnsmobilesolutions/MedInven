@@ -54,7 +54,7 @@ class MedInVen extends StatelessWidget {
         scaffoldBackgroundColor: CustomColor.white,
         brightness: Brightness.light,
         listTileTheme: ListTileThemeData(
-          iconColor: CustomColor.darkPurple,
+          iconColor: CustomColor.customBlue,
           textColor: CustomColor.black,
           tileColor: CustomColor.lightSky,
           //selectedColor: Colors.black,

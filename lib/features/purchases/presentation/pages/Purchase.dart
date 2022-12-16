@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
+import 'package:medinven/features/purchases/presentation/pages/searchPurchases.dart';
 import 'package:medinven/features/purchases/presentation/widgets/purchasewidgets.dart';
 
 class Purchase extends StatefulWidget {
@@ -27,7 +28,13 @@ class _PurchaseState extends State<Purchase> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    onPressed: (() {}),
+                    onPressed: (() {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return SearchPurchases();
+                        },
+                      ));
+                    }),
                     icon: Icon(
                       Icons.search,
                       size: Theme.of(context).iconTheme.size,
