@@ -60,7 +60,7 @@ class MedInVen extends StatelessWidget {
           //selectedColor: Colors.black,
           selectedTileColor: CustomColor.lightSky,
         ),
-        iconTheme: IconThemeData(color: CustomColor.darkPurple, size: 25),
+        iconTheme: IconThemeData(color: CustomColor.customBlue, size: 30),
         // buttonTheme: ButtonThemeData(
         //   buttonColor: CustomColor.lightBlue,
         //   textTheme: ButtonTextTheme.normal,
@@ -78,9 +78,9 @@ class MedInVen extends StatelessWidget {
           ),
           headline2: TextStyle(
             fontFamily: Font.fontFamily,
-            color: CustomColor.grey,
+            color: CustomColor.black,
             fontWeight: FontWeight.bold,
-            fontSize: 17,
+            fontSize: 15,
           ),
           headline3: TextStyle(
             fontFamily: Font.fontFamily,
@@ -101,24 +101,24 @@ class MedInVen extends StatelessWidget {
           ),
           subtitle1: TextStyle(
             fontFamily: Font.fontFamily,
-            color: CustomColor.lightGreen,
+            color: CustomColor.grey,
             fontSize: 14,
+            fontWeight: FontWeight.bold,
           ),
           subtitle2: TextStyle(
             fontFamily: Font.fontFamily,
-            color: CustomColor.lightSky,
-            fontSize: 12,
+            color: CustomColor.customBlue,
+            fontWeight: FontWeight.bold,
+            fontSize: 13,
           ),
           bodyText1: TextStyle(
               fontFamily: Font.fontFamily,
-              color: CustomColor.lightOrange,
-              //fontWeight: FontWeight.bold,
-              fontSize: 16),
+              color: CustomColor.black,
+              fontSize: 13),
           bodyText2: TextStyle(
             fontFamily: Font.fontFamily,
-            color: CustomColor.white,
-            //fontWeight: FontWeight.bold,
-            fontSize: 14,
+            color: CustomColor.black,
+            fontSize: 13,
           ),
           button: TextStyle(
             color: CustomColor.white,

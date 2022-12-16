@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
-                        child: CustomWidgets.customContainer(
+                        child: HomeWidgets.customContainer(
                           '0',
                           'Today',
                           'Sales',
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
-                        child: CustomWidgets.customContainer(
+                        child: HomeWidgets.customContainer(
                           '\u{20B9} 0',
                           '0 Days',
                           'Savings',
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
-                        child: CustomWidgets.customContainer(
+                        child: HomeWidgets.customContainer(
                           '0',
                           '',
                           'Inventory Items',
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
-                        child: CustomWidgets.customContainer(
+                        child: HomeWidgets.customContainer(
                           '0',
                           '',
                           'Alerts',
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Row(
                           children: [
-                            CustomWidgets.customContainer2(
+                            HomeWidgets.customContainer2(
                               '\u{20B9} 0',
                               'Total Sales Amount',
                               'Today',
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Color.fromARGB(255, 72, 33, 243),
                             ),
                             SizedBox(width: 10),
-                            CustomWidgets.customContainer2(
+                            HomeWidgets.customContainer2(
                               '\u{20B9} 0',
                               'Total Profit',
                               'Today',
@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.grey),
                           ),
                           SizedBox(height: 10),
-                          CustomWidgets.customContainer2(
+                          HomeWidgets.customContainer2(
                             '\u{20B9} 0',
                             '0',
                             'Today',
@@ -328,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Color.fromARGB(255, 72, 33, 243),
                           ),
                           SizedBox(height: 10),
-                          CustomWidgets.customContainer2(
+                          HomeWidgets.customContainer2(
                             '1',
                             '\u{20B9} 0',
                             'Lifetime Purchases',
