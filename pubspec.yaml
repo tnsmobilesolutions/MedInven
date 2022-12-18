@@ -42,6 +42,7 @@ dependencies:
   connectivity_plus: ^3.0.2
   shared_preferences: ^2.0.15
   intl: ^0.18.0
+  mongo_dart: ^0.8.2
 
 dev_dependencies:
   flutter_test:
