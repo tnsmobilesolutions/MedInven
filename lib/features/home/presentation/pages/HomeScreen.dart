@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:medinven/features/home/presentation/widgets/homewidgets.dart';
+import 'package:medinven/features/inventory/presentation/pages/Inventory.dart';
+import 'package:medinven/features/sales/presentation/pages/Sales.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -37,6 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
+                        onTap: (() {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return Sales();
+                            },
+                          ));
+                        }),
                         child: HomeWidgets.customContainer(
                           '0',
                           'Today',
@@ -52,6 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
+                        onTap: (() {
+                          // Navigator.push(context, MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return Sales();
+                          //   },
+                          // ));
+                        }),
                         child: HomeWidgets.customContainer(
                           '\u{20B9} 0',
                           '0 Days',
@@ -67,6 +83,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
+                        onTap: (() {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return Inventory();
+                            },
+                          ));
+                        }),
                         child: HomeWidgets.customContainer(
                           '0',
                           '',
@@ -82,6 +105,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
+                        onTap: (() {
+                          // Navigator.push(context, MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return Sales();
+                          //   },
+                          // ));
+                        }),
                         child: HomeWidgets.customContainer(
                           '0',
                           '',

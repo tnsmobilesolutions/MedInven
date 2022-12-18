@@ -19,7 +19,7 @@ class _CreateSalesState extends State<CreateSales> {
   TextEditingController discountController = TextEditingController();
   TextEditingController mrpController = TextEditingController();
   TextEditingController batchCodeController = TextEditingController();
-  String? _selectedMedType;
+  String? _selectedMedType, _selectedGST;
   bool isTypeSelected = false;
   int selectedIndex = 0;
   String selectedMedType = '%';
@@ -27,6 +27,13 @@ class _CreateSalesState extends State<CreateSales> {
   static List<String> catagory = [
     'Pcs',
     'Strips',
+  ];
+  static List<String> gstList = [
+    '0%',
+    '5%',
+    '8%',
+    '12%',
+    '28%',
   ];
   int containerHeight = 40;
   int containerWidth = 40;
@@ -313,21 +320,43 @@ class _CreateSalesState extends State<CreateSales> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'GST',
-                          style: Theme.of(context).textTheme.headline4,
+                        Row(
+                          children: [
+                            Text(
+                              'GST',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ],
                         ),
                         SizedBox(
-                          width: 200,
-                          child: TextFormField(
+                          width: 100,
+                          child: DropdownButton(
+                            borderRadius: BorderRadius.circular(5),
                             style: Theme.of(context).textTheme.bodyText1,
-                            keyboardType: TextInputType.number,
-                            autofocus: false,
-                            controller: medicineNameController,
-                            onSaved: (value) {
-                              medicineNameController.text = value!;
+                            iconEnabledColor: Theme.of(context).iconTheme.color,
+                            hint: Text(
+                              gstList[0],
+                            ),
+                            value: _selectedGST,
+                            dropdownColor: Colors.white,
+                            onChanged: (value) {
+                              setState(
+                                () {
+                                  _selectedGST = value;
+                                },
+                              );
                             },
-                            textInputAction: TextInputAction.next,
+                            items: gstList.map(
+                              (val) {
+                                return DropdownMenuItem(
+                                  value: val,
+                                  child: Padding(
+                                    padding: EdgeInsets.all(13),
+                                    child: Text(val),
+                                  ),
+                                );
+                              },
+                            ).toList(),
                           ),
                         ),
                       ],

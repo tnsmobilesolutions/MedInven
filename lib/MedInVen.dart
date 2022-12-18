@@ -159,8 +159,8 @@ class MedInVen extends StatelessWidget {
                   BorderSide(width: 1.0, color: CustomColor.customBlue)),
         ),
         appBarTheme: AppBarTheme(
-          elevation: 0,
-          //centerTitle: true,
+          elevation: 1,
+          centerTitle: true,
           backgroundColor: CustomColor.white,
           titleTextStyle: TextStyle(
             fontSize: 20,

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
+import 'package:medinven/features/purchases/presentation/pages/addPurchase.dart';
 
 class PurchaseWidgets {
   static Future<void> showMyDialog(BuildContext context) async {
@@ -83,7 +84,13 @@ class PurchaseWidgets {
                   ),
                   SizedBox(height: 10),
                   GestureDetector(
-                    onTap: (() {}),
+                    onTap: (() {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return AddPurchase();
+                        },
+                      ));
+                    }),
                     child: Container(
                       height: 45,
                       width: 450,
