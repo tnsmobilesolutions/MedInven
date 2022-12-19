@@ -3,6 +3,9 @@ import 'package:medinven/features/purchases/domain/entities/purchase_entity.dart
 
 class PurchaseModel extends PurchaseEntity {
   PurchaseModel({
+    required distributorName,
+    required phoneNumber,
+    required purchaseDate,
     required medicineName,
     required packageType,
     required quantityPerPack,
@@ -26,7 +29,11 @@ class PurchaseModel extends PurchaseEntity {
           quantity: quantity,
           quantityPerPack: quantityPerPack,
           unit: unit,
+          distributorName: distributorName,
+          phoneNumber: phoneNumber,
+          purchaseDate: purchaseDate,
         );
+  @override
   Map<String, dynamic> toMap() {
     return {
       'medicineName': medicineName,
@@ -56,6 +63,9 @@ class PurchaseModel extends PurchaseEntity {
       finalRatePerPack: map['finalRatePerPack']?.toInt() ?? 0,
       mrpPerPack: map['mrpPerPack']?.toInt() ?? 0,
       manufacturer: map['manufacturer'] ?? '',
+      distributorName: map['distributorName'] ?? '',
+      phoneNumber: map['phoneNumber'] ?? 0,
+      purchaseDate: DateTime.fromMillisecondsSinceEpoch(map['purchaseDate']),
     );
   }
 

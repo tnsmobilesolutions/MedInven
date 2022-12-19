@@ -5,5 +5,7 @@ import 'package:medinven/features/purchases/domain/repositories/purchase_reposit
 
 class PurchaseRepositoryImpl implements PurchaseRepository {
   @override
-  Future<Either<Failure, PurchaseEntity>>? getMedicineName;
+  Future<Either<Failure, PurchaseEntity>>? getMedicineName() {
+    return null;
+  }
 }
