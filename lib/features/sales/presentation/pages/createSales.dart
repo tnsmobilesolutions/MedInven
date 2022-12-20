@@ -13,21 +13,11 @@ class CreateSales extends StatefulWidget {
 }
 
 class _CreateSalesState extends State<CreateSales> {
-  TextEditingController selectedDateController = TextEditingController();
-  TextEditingController medicineNameController = TextEditingController();
-  TextEditingController quantityController = TextEditingController();
-  TextEditingController discountController = TextEditingController();
-  TextEditingController mrpController = TextEditingController();
-  TextEditingController batchCodeController = TextEditingController();
-  String? _selectedMedType, _selectedGST;
-  bool isTypeSelected = false;
-  int selectedIndex = 0;
-  String selectedMedType = '%';
-  List type = ['%', '\u{20B9}'];
   static List<String> catagory = [
     'Pcs',
     'Strips',
   ];
+
   static List<String> gstList = [
     '0%',
     '5%',
@@ -35,8 +25,28 @@ class _CreateSalesState extends State<CreateSales> {
     '12%',
     '28%',
   ];
+
+  TextEditingController batchCodeController = TextEditingController();
+  TextEditingController commentsController = TextEditingController();
   int containerHeight = 40;
   int containerWidth = 40;
+  TextEditingController customerNameController = TextEditingController();
+  TextEditingController customerPhoneController = TextEditingController();
+  TextEditingController discountController = TextEditingController();
+  TextEditingController doctorNameController = TextEditingController();
+  TextEditingController expDateController = TextEditingController();
+  TextEditingController finalDiscountNameController = TextEditingController();
+  TextEditingController invoiceController = TextEditingController();
+  bool isTypeSelected = false;
+  TextEditingController medicineNameController = TextEditingController();
+  TextEditingController mrpController = TextEditingController();
+  TextEditingController quantityController = TextEditingController();
+  TextEditingController saleDateController = TextEditingController();
+  int selectedIndex = 0;
+  String selectedMedType = '%';
+  List type = ['%', '\u{20B9}'];
+
+  String? _selectedMedType, _selectedGST;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +76,7 @@ class _CreateSalesState extends State<CreateSales> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150,
+              height: 170,
               width: totalWidth,
               decoration: BoxDecoration(
                 boxShadow: [
@@ -83,11 +93,110 @@ class _CreateSalesState extends State<CreateSales> {
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Customer Details',
                       style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Customer Name',
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 400,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: customerNameController,
+                                onSaved: (value) {
+                                  customerNameController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Customer Phone',
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 400,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: customerPhoneController,
+                                onSaved: (value) {
+                                  customerPhoneController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Sale Date',
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 400,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: saleDateController,
+                                onSaved: (value) {
+                                  medicineNameController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                                decoration: InputDecoration(
+                                    suffixIcon: IconButton(
+                                  onPressed: (() async {
+                                    DateTime? pickedDate = await showDatePicker(
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        firstDate: DateTime(1950),
+                                        lastDate: DateTime(2100));
+
+                                    if (pickedDate != null) {
+                                      String formattedDate = DateFormat('d-M-y')
+                                          .format(pickedDate);
+                                      setState(() {
+                                        saleDateController.text = formattedDate;
+                                      });
+                                    } else {}
+                                  }),
+                                  icon: Icon(
+                                    Icons.schedule_rounded,
+                                  ),
+                                )),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -398,7 +507,7 @@ class _CreateSalesState extends State<CreateSales> {
                             style: Theme.of(context).textTheme.bodyText1,
                             keyboardType: TextInputType.number,
                             autofocus: false,
-                            controller: selectedDateController,
+                            controller: expDateController,
                             onSaved: (value) {
                               medicineNameController.text = value!;
                             },
@@ -410,13 +519,14 @@ class _CreateSalesState extends State<CreateSales> {
                                     context: context,
                                     initialDate: DateTime.now(),
                                     firstDate: DateTime(1950),
-                                    lastDate: DateTime(2100));
+                                    lastDate: DateTime(2100),
+                                    initialDatePickerMode: DatePickerMode.year);
 
                                 if (pickedDate != null) {
                                   String formattedDate =
                                       DateFormat('yMMMM').format(pickedDate);
                                   setState(() {
-                                    selectedDateController.text = formattedDate;
+                                    expDateController.text = formattedDate;
                                   });
                                 } else {}
                               }),
@@ -454,7 +564,7 @@ class _CreateSalesState extends State<CreateSales> {
                 print('Discount - ${discountController.text}');
                 print('MRP/Pc - ${mrpController.text}');
                 print('Batch Code - ${batchCodeController.text}');
-                print('Exp. date - ${selectedDateController.text}');
+                print('Exp. date - ${expDateController.text}');
               },
               child: Container(
                 height: 45,
@@ -510,10 +620,177 @@ class _CreateSalesState extends State<CreateSales> {
                 borderRadius: BorderRadius.circular(5),
                 color: CustomColor.white,
               ),
-              child: Center(
-                child: Text(
-                  'Cancel',
-                  style: Theme.of(context).textTheme.headline5,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Doctor\'s Name',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 400,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: doctorNameController,
+                                onSaved: (value) {
+                                  doctorNameController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Invoice Number',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 200,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: invoiceController,
+                                onSaved: (value) {
+                                  invoiceController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Final Discount',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 200,
+                              child: TextFormField(
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: discountController,
+                                onSaved: (value) {
+                                  discountController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 30),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Total Profit',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 25),
+                            Text(
+                              '\u{20B9} 0.00',
+                              style: Theme.of(context).textTheme.headline2,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 30),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Upload Prescription',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 10),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 50,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color:
+                                          Color.fromARGB(255, 228, 228, 243)),
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: CustomColor.white,
+                                ),
+                                child: Row(
+                                  // mainAxisAlignment:
+                                  //     MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Icon(Icons
+                                              .medical_information_outlined),
+                                          SizedBox(width: 10),
+                                          Text(
+                                            'Upload Prescription',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle2,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Comments',
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                            SizedBox(height: 10),
+                            SizedBox(
+                              width: 200,
+                              child: TextFormField(
+                                maxLines: 5,
+                                style: Theme.of(context).textTheme.bodyText1,
+                                keyboardType: TextInputType.number,
+                                autofocus: false,
+                                controller: commentsController,
+                                onSaved: (value) {
+                                  commentsController.text = value!;
+                                },
+                                textInputAction: TextInputAction.next,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),
