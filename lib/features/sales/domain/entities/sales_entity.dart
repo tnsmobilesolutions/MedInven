@@ -5,63 +5,66 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class SalesEntity extends Equatable {
-  final String customerName;
-  final int customerPhone;
+  final String? customerName;
+  final int? customerPhone;
   final String medicineName;
-  final DateTime saleDate;
-  final String doctorName;
-  final String invoiceNumber;
-  final String prescription;
-  final int finalDiscount;
-  final int totalProfit;
-  final String comment;
+  final String medicineType;
+  final DateTime? saleDate;
+  final String? doctorName;
+  final String? invoiceNumber;
+  final String? prescription;
+  final int? finalDiscount;
+  final int? totalProfit;
+  final String? comment;
   final int quantity;
-  final int discount;
+  final int? discount;
   final int mrp;
-  final int gst;
-  final String batchCode;
-  final DateTime expiryDate;
-  final String marginLeft;
+  final int? gst;
+  final String? batchCode;
+  final DateTime? expiryDate;
+  final String? marginLeft;
   SalesEntity({
-    required this.customerName,
-    required this.customerPhone,
+    this.customerName,
+    this.customerPhone,
     required this.medicineName,
-    required this.saleDate,
-    required this.doctorName,
-    required this.invoiceNumber,
-    required this.prescription,
-    required this.finalDiscount,
-    required this.totalProfit,
-    required this.comment,
+    required this.medicineType,
+    this.saleDate,
+    this.doctorName,
+    this.invoiceNumber,
+    this.prescription,
+    this.finalDiscount,
+    this.totalProfit,
+    this.comment,
     required this.quantity,
-    required this.discount,
+    this.discount,
     required this.mrp,
-    required this.gst,
-    required this.batchCode,
-    required this.expiryDate,
-    required this.marginLeft,
+    this.gst,
+    this.batchCode,
+    this.expiryDate,
+    this.marginLeft,
   });
 
   @override
   List<Object> get props {
     return [
-      customerName,
-      customerPhone,
-      medicineName,
-      saleDate,
-      doctorName,
-      invoiceNumber,
-      prescription,
-      finalDiscount,
-      totalProfit,
-      comment,
-      quantity,
-      discount,
-      mrp,
-      gst,
-      batchCode,
-      expiryDate,
-      marginLeft,
+      // customerName,
+      // customerPhone,
+      // medicineName,
+      // medicineType,
+      // saleDate,
+      // doctorName,
+      // invoiceNumber,
+      // prescription,
+      // finalDiscount,
+      // totalProfit,
+      // comment,
+      // quantity,
+      // discount,
+      // mrp,
+      // gst,
+      // batchCode,
+      // expiryDate,
+      // marginLeft,
     ];
   }
 
@@ -69,6 +72,7 @@ class SalesEntity extends Equatable {
     String? customerName,
     int? customerPhone,
     String? medicineName,
+    String? medicineType,
     DateTime? saleDate,
     String? doctorName,
     String? invoiceNumber,
@@ -88,6 +92,7 @@ class SalesEntity extends Equatable {
       customerName: customerName ?? this.customerName,
       customerPhone: customerPhone ?? this.customerPhone,
       medicineName: medicineName ?? this.medicineName,
+      medicineType: medicineType ?? this.medicineType,
       saleDate: saleDate ?? this.saleDate,
       doctorName: doctorName ?? this.doctorName,
       invoiceNumber: invoiceNumber ?? this.invoiceNumber,
@@ -110,7 +115,8 @@ class SalesEntity extends Equatable {
       'customerName': customerName,
       'customerPhone': customerPhone,
       'medicineName': medicineName,
-      'saleDate': saleDate.millisecondsSinceEpoch,
+      'medicineType': medicineType,
+      'saleDate': saleDate?.millisecondsSinceEpoch,
       'doctorName': doctorName,
       'invoiceNumber': invoiceNumber,
       'prescription': prescription,
@@ -122,30 +128,35 @@ class SalesEntity extends Equatable {
       'mrp': mrp,
       'gst': gst,
       'batchCode': batchCode,
-      'expiryDate': expiryDate.millisecondsSinceEpoch,
+      'expiryDate': expiryDate?.millisecondsSinceEpoch,
       'marginLeft': marginLeft,
     };
   }
 
   factory SalesEntity.fromMap(Map<String, dynamic> map) {
     return SalesEntity(
-      customerName: map['customerName'] ?? '',
-      customerPhone: map['customerPhone']?.toInt() ?? 0,
+      customerName: map['customerName'],
+      customerPhone: map['customerPhone']?.toInt(),
       medicineName: map['medicineName'] ?? '',
-      saleDate: DateTime.fromMillisecondsSinceEpoch(map['saleDate']),
-      doctorName: map['doctorName'] ?? '',
-      invoiceNumber: map['invoiceNumber'] ?? '',
-      prescription: map['prescription'] ?? '',
-      finalDiscount: map['finalDiscount']?.toInt() ?? 0,
-      totalProfit: map['totalProfit']?.toInt() ?? 0,
-      comment: map['comment'] ?? '',
+      medicineType: map['medicineType'] ?? '',
+      saleDate: map['saleDate'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['saleDate'])
+          : null,
+      doctorName: map['doctorName'],
+      invoiceNumber: map['invoiceNumber'],
+      prescription: map['prescription'],
+      finalDiscount: map['finalDiscount']?.toInt(),
+      totalProfit: map['totalProfit']?.toInt(),
+      comment: map['comment'],
       quantity: map['quantity']?.toInt() ?? 0,
-      discount: map['discount']?.toInt() ?? 0,
+      discount: map['discount']?.toInt(),
       mrp: map['mrp']?.toInt() ?? 0,
-      gst: map['gst']?.toInt() ?? 0,
-      batchCode: map['batchCode'] ?? '',
-      expiryDate: DateTime.fromMillisecondsSinceEpoch(map['expiryDate']),
-      marginLeft: map['marginLeft'] ?? '',
+      gst: map['gst']?.toInt(),
+      batchCode: map['batchCode'],
+      expiryDate: map['expiryDate'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['expiryDate'])
+          : null,
+      marginLeft: map['marginLeft'],
     );
   }
 
@@ -156,6 +167,6 @@ class SalesEntity extends Equatable {
 
   @override
   String toString() {
-    return 'SalesEntity(customerName: $customerName, customerPhone: $customerPhone, medicineName: $medicineName, saleDate: $saleDate, doctorName: $doctorName, invoiceNumber: $invoiceNumber, prescription: $prescription, finalDiscount: $finalDiscount, totalProfit: $totalProfit, comment: $comment, quantity: $quantity, discount: $discount, mrp: $mrp, gst: $gst, batchCode: $batchCode, expiryDate: $expiryDate, marginLeft: $marginLeft)';
+    return 'SalesEntity(customerName: $customerName, customerPhone: $customerPhone, medicineName: $medicineName, medicineType: $medicineType, saleDate: $saleDate, doctorName: $doctorName, invoiceNumber: $invoiceNumber, prescription: $prescription, finalDiscount: $finalDiscount, totalProfit: $totalProfit, comment: $comment, quantity: $quantity, discount: $discount, mrp: $mrp, gst: $gst, batchCode: $batchCode, expiryDate: $expiryDate, marginLeft: $marginLeft)';
   }
 }

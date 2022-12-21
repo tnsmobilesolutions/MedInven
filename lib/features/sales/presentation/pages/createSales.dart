@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
+import 'package:medinven/features/sales/domain/entities/sales_entity.dart';
 import 'package:medinven/features/sales/presentation/widgets/saleswidgets.dart';
 import 'package:intl/intl.dart';
 
@@ -45,6 +46,7 @@ class _CreateSalesState extends State<CreateSales> {
   int selectedIndex = 0;
   String selectedMedType = '%';
   List type = ['%', '\u{20B9}'];
+  DateTime? pickedDate, expDate;
 
   String? _selectedMedType, _selectedGST;
 
@@ -174,7 +176,7 @@ class _CreateSalesState extends State<CreateSales> {
                                 decoration: InputDecoration(
                                     suffixIcon: IconButton(
                                   onPressed: (() async {
-                                    DateTime? pickedDate = await showDatePicker(
+                                    pickedDate = await showDatePicker(
                                         context: context,
                                         initialDate: DateTime.now(),
                                         firstDate: DateTime(1950),
@@ -182,7 +184,7 @@ class _CreateSalesState extends State<CreateSales> {
 
                                     if (pickedDate != null) {
                                       String formattedDate = DateFormat('d-M-y')
-                                          .format(pickedDate);
+                                          .format(pickedDate!);
                                       setState(() {
                                         saleDateController.text = formattedDate;
                                       });
@@ -515,7 +517,7 @@ class _CreateSalesState extends State<CreateSales> {
                             decoration: InputDecoration(
                                 suffixIcon: IconButton(
                               onPressed: (() async {
-                                DateTime? pickedDate = await showDatePicker(
+                                expDate = await showDatePicker(
                                     context: context,
                                     initialDate: DateTime.now(),
                                     firstDate: DateTime(1950),
@@ -524,7 +526,7 @@ class _CreateSalesState extends State<CreateSales> {
 
                                 if (pickedDate != null) {
                                   String formattedDate =
-                                      DateFormat('yMMMM').format(pickedDate);
+                                      DateFormat('yMMMM').format(expDate!);
                                   setState(() {
                                     expDateController.text = formattedDate;
                                   });
@@ -692,7 +694,7 @@ class _CreateSalesState extends State<CreateSales> {
                                 autofocus: false,
                                 controller: discountController,
                                 onSaved: (value) {
-                                  discountController.text = value!;
+                                  discountController.text = value as String;
                                 },
                                 textInputAction: TextInputAction.next,
                               ),
@@ -793,6 +795,73 @@ class _CreateSalesState extends State<CreateSales> {
                   ],
                 ),
               ),
+            ),
+            SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    SalesEntity newSale = SalesEntity(
+                      customerName: customerNameController.text,
+                      customerPhone:
+                          int.tryParse(customerPhoneController.text) as int,
+                      saleDate: pickedDate,
+                      batchCode: batchCodeController.text,
+                      comment: commentsController.text,
+                      discount: int.tryParse(discountController.text),
+                      doctorName: doctorNameController.text,
+                      expiryDate: expDate,
+                      finalDiscount: int.tryParse(discountController.text),
+                      gst: int.tryParse(_selectedGST as String),
+                      invoiceNumber: invoiceController.text,
+                      medicineName: medicineNameController.text,
+                      medicineType: _selectedMedType as String,
+                      quantity: int.tryParse(quantityController.text) as int,
+                      mrp: int.tryParse(mrpController.text) as int,
+                    );
+                    print(_selectedGST);
+                    print(discountController.text);
+                    //print(newSale);
+                  },
+                  child: Container(
+                    height: 100,
+                    width: totalWidth / 3,
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: Color.fromARGB(255, 228, 228, 243)),
+                      borderRadius: BorderRadius.circular(5),
+                      color: CustomColor.customBlue,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Total',
+                                style: Theme.of(context).textTheme.headline5,
+                              ),
+                              Text(
+                                '\u{20B9} 0.00',
+                                style: Theme.of(context).textTheme.headline5,
+                              ),
+                            ],
+                          ),
+                          Text(
+                            'Proceed',
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

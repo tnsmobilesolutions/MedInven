@@ -1,0 +1,10 @@
+^D:\EXE_FILES\FLUTTER\TNS\MEDINVEN\BUILD\WINDOWS\CMAKEFILES\513A01597D3B08104BAD2D3C40B4F3B4\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

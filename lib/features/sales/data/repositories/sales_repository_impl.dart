@@ -8,4 +8,16 @@ class SalesRepositoryImpl implements SalesRepository {
   Future<Either<Failure, SalesEntity>>? getmedicineName() {
     return null;
   }
+
+  Future<Either<Failure, SalesEntity>>? addSale() {
+    return null;
+  }
+
+  Future<Either<Failure, SalesEntity>>? removeSale() {
+    return null;
+  }
+
+  Future<Either<Failure, SalesEntity>>? editSale() {
+    return null;
+  }
 }

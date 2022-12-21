@@ -15,6 +15,11 @@ class Sales extends StatefulWidget {
 
 class _SalesState extends State<Sales> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final totalWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -135,6 +140,102 @@ class _SalesState extends State<Sales> {
                       totalWidth,
                       CustomColor.white,
                       CustomColor.customBlue,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                ],
+              ),
+              SizedBox(height: 40),
+              Text(
+                'Recent Sales',
+                style: Theme.of(context).textTheme.headline2,
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Container(
+                    height: 100,
+                    width: totalWidth / 3,
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: Color.fromARGB(255, 228, 228, 243)),
+                      borderRadius: BorderRadius.circular(5),
+                      color: CustomColor.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '',
+                                style: Theme.of(context).textTheme.headline2,
+                              ),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                  //color: textColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    height: 100,
+                    width: totalWidth / 3,
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: Color.fromARGB(255, 228, 228, 243)),
+                      borderRadius: BorderRadius.circular(5),
+                      color: CustomColor.white,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '',
+                                style: Theme.of(context).textTheme.headline2,
+                              ),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Text(
+                                '',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                  //color: textColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

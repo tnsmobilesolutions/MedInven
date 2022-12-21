@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\exe_files\Flutter\TNS\MedInven\build\windows\CMakeFiles\88661d245e8df4b20c3fcf22571246cb\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\exe_files\Flutter\TNS\MedInven\build\windows\CMakeFiles\20c5d4dda7ad4969ee895cdd48a6e37b\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\exe_files\Flutter\TNS\MedInven\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\exe_files\Flutter\TNS\MedInven\build\windows\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6321089E-A098-33F6-9DD8-55AD050BF3C7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
