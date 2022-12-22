@@ -1,6 +1,6 @@
 import 'package:medinven/features/sales/domain/entities/sales_entity.dart';
 
-class Sales {
+class SalesList {
   static List<SalesEntity> invenList = [
     SalesEntity(
         customerName: 'Atanu Sabyasachi',
@@ -54,7 +54,7 @@ class Sales {
         comment: '',
         quantity: 10,
         discount: 20,
-        mrp: 150,
+        mrp: 50,
         gst: 5,
         batchCode: 'bjxjb3jb',
         expiryDate: DateTime(2024, 12, 04),

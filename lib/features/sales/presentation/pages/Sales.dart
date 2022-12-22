@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
 import 'package:medinven/features/sales/presentation/pages/createSales.dart';
+import 'package:medinven/features/sales/presentation/pages/salesList.dart';
 import 'package:medinven/features/sales/presentation/pages/searchSales.dart';
 import 'package:medinven/features/sales/presentation/widgets/saleswidgets.dart';
 
@@ -27,8 +28,9 @@ class _SalesState extends State<Sales> {
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: Theme.of(context).appBarTheme.elevation,
         leading: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 5),
             Text('Sales', style: Theme.of(context).textTheme.headline2),
             Text('0 sales', style: Theme.of(context).textTheme.bodyText1),
           ],
@@ -146,43 +148,54 @@ class _SalesState extends State<Sales> {
                 ],
               ),
               SizedBox(height: 40),
-              Text(
-                'Recent Sales',
-                style: Theme.of(context).textTheme.headline2,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recent Sales',
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'View All Sales',
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 10),
               Row(
                 children: [
                   Container(
-                    height: 100,
-                    width: totalWidth / 3,
+                    height: 150,
+                    width: totalWidth / 2.4,
                     decoration: BoxDecoration(
                       border:
                           Border.all(color: Color.fromARGB(255, 228, 228, 243)),
                       borderRadius: BorderRadius.circular(5),
                       color: CustomColor.white,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '',
+                                'Net Amount',
                                 style: Theme.of(context).textTheme.headline2,
                               ),
                               Text(
-                                '',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                ),
+                                '\u{20B9} ${SalesList.invenList[1].mrp}',
+                                style: Theme.of(context).textTheme.headline2,
                               ),
+                              SizedBox(height: 20),
                               Text(
-                                '',
+                                SalesList.invenList[1].customerName ?? '',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
@@ -191,41 +204,44 @@ class _SalesState extends State<Sales> {
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          IconButton(
+                            onPressed: (() {}),
+                            icon: Icon(Icons.delete),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 10),
                   Container(
-                    height: 100,
-                    width: totalWidth / 3,
+                    height: 150,
+                    width: totalWidth / 2.4,
                     decoration: BoxDecoration(
                       border:
                           Border.all(color: Color.fromARGB(255, 228, 228, 243)),
                       borderRadius: BorderRadius.circular(5),
                       color: CustomColor.white,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '',
+                                'Net Amount',
                                 style: Theme.of(context).textTheme.headline2,
                               ),
                               Text(
-                                '',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                ),
+                                '\u{20B9} ${SalesList.invenList[2].mrp}',
+                                style: Theme.of(context).textTheme.headline2,
                               ),
+                              SizedBox(height: 20),
                               Text(
-                                '',
+                                SalesList.invenList[2].customerName ?? '',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 12,
@@ -234,8 +250,12 @@ class _SalesState extends State<Sales> {
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          IconButton(
+                            onPressed: (() {}),
+                            icon: Icon(Icons.delete),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

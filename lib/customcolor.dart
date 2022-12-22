@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomColor {
   static const black = Colors.black;
-  static const customBlue = Color.fromARGB(255, 72, 33, 243);
+  static const customBlue = Color.fromARGB(242, 44, 73, 199);
   static const darkGreen = Color.fromARGB(255, 20, 175, 123);
   static const darkOrange = Color.fromARGB(169, 168, 97, 14);
   static const darkPurple = Color.fromARGB(169, 21, 29, 105);

@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:medinven/customcolor.dart';
+import 'package:medinven/features/sales/data/repositories/sales_repository_impl.dart';
 import 'package:medinven/features/sales/domain/entities/sales_entity.dart';
+import 'package:medinven/features/sales/presentation/pages/fileupload.dart';
 import 'package:medinven/features/sales/presentation/widgets/saleswidgets.dart';
 import 'package:intl/intl.dart';
 
@@ -47,7 +49,7 @@ class _CreateSalesState extends State<CreateSales> {
   String selectedMedType = '%';
   List type = ['%', '\u{20B9}'];
   DateTime? pickedDate, expDate;
-
+  dynamic imageFromUploadButton;
   String? _selectedMedType, _selectedGST;
 
   @override
@@ -726,7 +728,20 @@ class _CreateSalesState extends State<CreateSales> {
                             ),
                             SizedBox(height: 10),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () async {
+                                try {
+                                  imageFromUploadButton = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return ImageUploadToFirebase();
+                                      },
+                                    ),
+                                  );
+                                } catch (e) {
+                                  print(e);
+                                }
+                              },
                               child: Container(
                                 height: 50,
                                 width: 200,
@@ -738,8 +753,6 @@ class _CreateSalesState extends State<CreateSales> {
                                   color: CustomColor.white,
                                 ),
                                 child: Row(
-                                  // mainAxisAlignment:
-                                  //     MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
                                       padding: EdgeInsets.all(10),
@@ -813,24 +826,24 @@ class _CreateSalesState extends State<CreateSales> {
                       doctorName: doctorNameController.text,
                       expiryDate: expDate,
                       finalDiscount: int.tryParse(discountController.text),
-                      gst: int.tryParse(_selectedGST as String),
+                      gst: int.tryParse(
+                          _selectedGST?.replaceAll(RegExp('%'), '') as String),
                       invoiceNumber: invoiceController.text,
                       medicineName: medicineNameController.text,
                       medicineType: _selectedMedType as String,
                       quantity: int.tryParse(quantityController.text) as int,
                       mrp: int.tryParse(mrpController.text) as int,
                     );
-                    print(_selectedGST);
-                    print(discountController.text);
-                    //print(newSale);
+                    SalesRepositoryImpl.addSale(newSale);
+                    print(newSale);
                   },
                   child: Container(
                     height: 100,
-                    width: totalWidth / 3,
+                    width: totalWidth / 2,
                     decoration: BoxDecoration(
                       border:
                           Border.all(color: Color.fromARGB(255, 228, 228, 243)),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(6),
                       color: CustomColor.customBlue,
                     ),
                     child: Padding(
