@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:medinven/customcolor.dart';
+import 'package:medinven/more_my_store.dart';
 
 class More extends StatefulWidget {
   const More({super.key});
@@ -71,20 +72,35 @@ class _MoreState extends State<More> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 15,
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  child: const SizedBox(
+                    height: 15,
+                  ),
+                ),
+              ],
             ),
             InkWell(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyStore(),
+                ),
+              ),
               child: SizedBox(
                 height: 70,
                 child: Card(
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.store_sharp,
-                        color: CustomColor.customBlue,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: const Icon(
+                          Icons.store_sharp,
+                          color: CustomColor.customBlue,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
