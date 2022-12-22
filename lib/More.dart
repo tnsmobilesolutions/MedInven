@@ -24,61 +24,63 @@ class _MoreState extends State<More> {
               width: MediaQuery.of(context).size.width,
               color: Colors.white,
               height: 200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 17,
-                  ),
-                  const Text('dhananjay',
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 17,
+                    ),
+                    const Text('dhananjay',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                    const Text('OWNER * +918093648091'),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      width: 100,
+                      child: TextButton(
+                          style: ButtonStyle(
+                              padding: MaterialStateProperty.all<EdgeInsets>(
+                                  const EdgeInsets.fromLTRB(5, 0, 40, 0)),
+                              foregroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.white),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  const Color(0xffFFB74A)),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ))),
+                          onPressed: () => null,
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Text("Verify\nkyc!".toUpperCase(),
+                                textAlign: TextAlign.left,
+                                style: const TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold)),
+                          )),
+                    ),
+                    const SizedBox(height: 20),
+                    const Text(
+                      'Shop Name',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  const Text('OWNER * +918093648091'),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    width: 100,
-                    child: TextButton(
-                        style: ButtonStyle(
-                            padding: MaterialStateProperty.all<EdgeInsets>(
-                                const EdgeInsets.fromLTRB(5, 0, 40, 0)),
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                const Color(0xffFFB74A)),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            ))),
-                        onPressed: () => null,
-                        child: Padding(
-                          padding: const EdgeInsets.all(3.0),
-                          child: Text("Verify\nkyc!".toUpperCase(),
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.bold)),
-                        )),
-                  ),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'Shop Name',
-                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
-                  ),
-                  const Text(
-                    'medi',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                    ),
+                    const Text(
+                      'medi',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ),
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                  child: const SizedBox(
-                    height: 15,
-                  ),
+                const SizedBox(
+                  height: 15,
                 ),
               ],
             ),
@@ -95,9 +97,9 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: const Icon(
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
                           Icons.store_sharp,
                           color: CustomColor.customBlue,
                         ),
@@ -119,21 +121,24 @@ class _MoreState extends State<More> {
               child: SizedBox(
                 height: 70,
                 child: Card(
-                  child: Row(
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [
-                      const Icon(
-                        Icons.people_outline,
-                        color: CustomColor.customBlue,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      const Text('My Customers',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold)),
-                      const SizedBox(height: 10),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const Icon(
+                          Icons.people_outline,
+                          color: CustomColor.customBlue,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text('My Customers',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 10),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -146,9 +151,12 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.edit,
-                        color: CustomColor.customBlue,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
+                          Icons.edit,
+                          color: CustomColor.customBlue,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -170,9 +178,12 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.whatsapp,
-                        color: CustomColor.customBlue,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
+                          Icons.whatsapp,
+                          color: CustomColor.customBlue,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -194,9 +205,12 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.question_mark,
-                        color: CustomColor.customBlue,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
+                          Icons.question_mark,
+                          color: CustomColor.customBlue,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -217,9 +231,12 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        color: CustomColor.customBlue,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: CustomColor.customBlue,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -241,9 +258,12 @@ class _MoreState extends State<More> {
                   child: Row(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      const Icon(
-                        Icons.power_settings_new,
-                        color: CustomColor.red,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 15),
+                        child: Icon(
+                          Icons.power_settings_new,
+                          color: CustomColor.red,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
